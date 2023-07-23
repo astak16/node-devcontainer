@@ -1,0 +1,40 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
+{
+	"name": "node",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	// "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18-bookworm",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"runArgs": [
+		// "--privileged",
+		// "--privileged",
+		// "--dns=114.114.114.114", // 如果你用的是长城宽带，在遇到网络不通的时候，可以删掉这一行
+		"--network=network1"
+	],
+	"mounts": [
+		{
+			"source": "${localEnv:HOME}/Library/pnpm",
+			"target": "/root/.local/share/pnpm",
+			"type": "bind"
+		}
+	],
+	"workspaceFolder": "/root/uccs",
+	"remoteUser": "root",
+	"shutdownAction": "stopContainer",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"GitHub.copilot",
+				"naumovs.color-highlight",
+				"streetsidesoftware.code-spell-checker",
+				"styled-components.vscode-styled-components",
+				"esbenp.prettier-vscode",
+				"pranaygp.vscode-css-peek",
+				"formulahendry.auto-rename-tag",
+				"steoates.autoimport"
+			]
+		}
+	}
+}
