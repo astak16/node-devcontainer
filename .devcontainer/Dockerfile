@@ -1,1 +1,1 @@
-FROM astak16/node:1.0.0
+FROM astak16/node:1.0.1
